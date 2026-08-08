@@ -23,7 +23,7 @@
 
 &uc {
     default-mode = <UC_MODE_LINUX>;
-}
+};
 
 / {
     behaviors {
@@ -99,7 +99,7 @@
             ss { sequence = <S S>; bindings = <&uc UC_DE_SS>; };
 
             // Currencies
-            cent { sequence = <C C E N T>; bindings = <&uc UC_CURR_CENT>; }
+            cent { sequence = <C C E N T>; bindings = <&uc UC_CURR_CENT>; };
             pound { sequence = <C P O U N D>; bindings = <&uc UC_CURR_POUND>; };
             yen { sequence = <C Y E N>; bindings = <&uc UC_CURR_YEN>; };
             yuan { sequence = <C Y U A N>; bindings = <&uc UC_CURR_YEN>; };
@@ -108,7 +108,7 @@
             euro { sequence = <C E U R O>; bindings = <&uc UC_CURR_EURO>; };
             ruble { sequence = <C R U B L E>; bindings = <&uc UC_CURR_RUBLE>; };
             turkish_lira { sequence = <C L I R A>; bindings = <&uc UC_CURR_TURKISH_LIRA>; };
-        }
+        };
 
         swap: swapper {
             compatible = "zmk,behavior-tri-state";
@@ -138,7 +138,7 @@
 
     keymap {
         compatible = "zmk,keymap";
-        
+
         default_layer {
             bindings = <
                 &kp Q       &kp W       &kp F        &kp P        &kp B                      &kp J &kp L         &kp U        &kp Y       &kp SEMI
