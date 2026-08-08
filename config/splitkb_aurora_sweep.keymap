@@ -18,8 +18,6 @@
 
 &sk {
     release-after-ms = <2000>;
-    quick-release;
-    lazy;
 };
 
 &uc {
@@ -84,15 +82,15 @@
             bt3 { sequence = <B S T>; bindings = <&bt BT_SEL 3>; }; // T -> 3
             btc { sequence = <B C L R>; bindings = <&bt BT_CLR>; };
 
-            macos { sequence = < S M A C>; bindings = <&uc UC_SET_MACOS>; };
-            windows { sequence = < S W I N>; bindings = <&uc UC_SET_WIN_ALT>; };
-            linux { sequence = < S L I N >; bindings = <&uc UC_SET_MACOS>; };
-            emacs { sequence = < S E M A C S >; bindings = <&uc UC_SET_EMACS>; };
+            macos { sequence = <S M A C>; bindings = <&uc UC_SET_MACOS>; };
+            windows { sequence = <S W I N>; bindings = <&uc UC_SET_WIN_ALT>; };
+            linux { sequence = <S L I N>; bindings = <&uc UC_SET_MACOS>; };
+            emacs { sequence = <S E M A C S>; bindings = <&uc UC_SET_EMACS>; };
 
             // Management
             boot { sequence = <B O O T>; bindings = <&bootloader>; };
             reset { sequence = <R E S E T>; bindings = <&sys_reset>; };
-            soft_off { sequence = < O F F >; bindings = <&soft_off>; };
+            soft_off { sequence = < O F F>; bindings = <&soft_off>; };
 
             // Accents
             ae { sequence = <A E>; bindings = <&uc UC_FR_AE>; };
