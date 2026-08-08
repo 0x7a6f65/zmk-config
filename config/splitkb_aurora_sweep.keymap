@@ -87,7 +87,7 @@
             macos { sequence = < S M A C>; bindings = <&uc UC_SET_MACOS>; };
             windows { sequence = < S W I N>; bindings = <&uc UC_SET_WIN_ALT>; };
             linux { sequence = < S L I N >; bindings = <&uc UC_SET_MACOS>; };
-            linux { sequence = < S E M A C S >; bindings = <&uc UC_SET_EMACS>; };
+            emacs { sequence = < S E M A C S >; bindings = <&uc UC_SET_EMACS>; };
 
             // Management
             boot { sequence = <B O O T>; bindings = <&bootloader>; };
