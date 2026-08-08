@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 #include <behaviors/unicode.dtsi>
 
 
@@ -77,10 +78,10 @@
             usb { sequence = <U S B>; bindings = <&out OUT_USB>; };
             ble { sequence = <B L E>; bindings = <&out OUT_BLE>; };
 
-            bt0 { sequence = <B A>; bindings = <&bt BT_SEL 0>; }; // A -> 0
-            bt1 { sequence = <B R>; bindings = <&bt BT_SEL 1>; }; // R -> 1
-            bt2 { sequence = <B S>; bindings = <&bt BT_SEL 2>; }; // S -> 2
-            bt2 { sequence = <B T>; bindings = <&bt BT_SEL 2>; }; // T -> 3
+            bt0 { sequence = <B S A>; bindings = <&bt BT_SEL 0>; }; // A -> 0
+            bt1 { sequence = <B S R>; bindings = <&bt BT_SEL 1>; }; // R -> 1
+            bt2 { sequence = <B S S>; bindings = <&bt BT_SEL 2>; }; // S -> 2
+            bt3 { sequence = <B S T>; bindings = <&bt BT_SEL 3>; }; // T -> 3
             btc { sequence = <B C L R>; bindings = <&bt BT_CLR>; };
 
             macos { sequence = < S M A C>; bindings = <&uc UC_SET_MACOS>; };
