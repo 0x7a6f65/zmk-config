@@ -221,7 +221,7 @@
             bindings = <
                 &none   &swap   &none     &none    &kp C_NEXT                      &none &none     &none     &none     &none
                 &kp ESC &kp TAB &kp ENTER &kp BSPC &none                           &none &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT
-                &none   &none   &none     &kp DEL  &kp C_PREV                      &none &kp DEADA &kp DEADG &kp DEADC &kkp DEADD
+                &none   &none   &none     &kp DEL  &kp C_PREV                      &none &kp DEADA &kp DEADG &kp DEADC &kp DEADD
                                                   &none  &trans                  &none &kp C_PP
             >;
         };
