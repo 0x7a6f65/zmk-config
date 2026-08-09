@@ -44,7 +44,13 @@
 #define RIGHT_KEYS RT1 RT2 RT3 RT4 RT5 RM1 RM2 RM3 RM4 RM5 RB1 RB2 RB3 RB4 RB5
 #define RIGHT_THUMBS RC1 RC2
 
+#define ALL_KEYS LEFT_KEYS RIGHT_KEYS
 #define ALL_THUMBS LEFT_THUMBS RIGHT_THUMBS
+
+#define L_DEF 0
+#define L_EXT 1
+#define L_SYM 2
+#define L_NUM 3
 
 &mt {
     // flavor = "tap-preferred";
@@ -94,6 +100,19 @@
             hold-trigger-key-positions = <RIGHT_KEYS ALL_THUMBS>;
             hold-trigger-on-release;
         };
+
+        l_sym: key_and_sym_layer {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&mo L_SYM>;
+            hold-trigger-key-positions = <ALL_KEYS>;
+            hold-trigger-on-release;
+        };
+
 
         mshift: magic_shift {
             compatible = "zmk,behavior-mod-morph";
@@ -163,11 +182,11 @@
 
         num_layer_thumbs {
             timeout-ms = <30>;
-            key-positions = <LC2 RC2>;
+            key-positions = <LC1 RC1>;
             layers = <0>;
-            bindings = <&mo 3>;
+            bindings = <&mo L_NUM>;
             require-prior-idle-ms = <100>;
-        }
+        };
     };
 
     conditional_layers {
@@ -182,7 +201,7 @@
                 &kp Q       &kp W       &kp F        &kp P        &kp B                      &kp J &kp L         &kp U        &kp Y       &kp SEMI
                 &hml LGUI A &hml LALT R &hml LSHFT S &hml LCTRL T &kp G                      &kp M &hmr LCTRL N  &hmr RSHFT E &hmr LALT I &hmr LGUI O
                 &kp Z       &kp X       &kp C        &kp D        &kp V                      &kp K &kp H         &kp COMMA    &kp DOT     &kp SLASH
-                                                            &mshift &mo 1                  &mo 2 &kp SPACE
+                                                            &mshift &mo 1                  &kp ENTER &l_sym SPACE
             >;
         };
 
