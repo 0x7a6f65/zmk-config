@@ -201,7 +201,7 @@
                 &kp Q       &kp W       &kp F        &kp P        &kp B                      &kp J &kp L         &kp U        &kp Y       &kp SEMI
                 &hml LGUI A &hml LALT R &hml LSHFT S &hml LCTRL T &kp G                      &kp M &hmr LCTRL N  &hmr RSHFT E &hmr LALT I &hmr LGUI O
                 &kp Z       &kp X       &kp C        &kp D        &kp V                      &kp K &kp H         &kp COMMA    &kp DOT     &kp SLASH
-                                                            &mshift &mo 1                  &kp ENTER &l_sym SPACE
+                                                            &mshift &mo 1                  &kp ENTER &l_sym SPACE 0
             >;
         };
 
