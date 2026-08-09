@@ -101,27 +101,12 @@
             hold-trigger-on-release;
         };
 
-        kmo: key_and_mo_layer {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <100>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            bindings = <&mo>, <&kp>;
-            hold-trigger-key-positions = <ALL_KEYS>;
-            hold-trigger-on-release;
-        };
         mshftmo: magic_shift_and_mo_layer {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <100>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            bindings = <&mo>, <&mshift>;
-            hold-trigger-key-positions = <ALL_KEYS>;
-            hold-trigger-on-release;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&kp>;
         };
 
 
@@ -212,7 +197,7 @@
                 &kp Q       &kp W       &kp F        &kp P        &kp B                      &kp J &kp L         &kp U        &kp Y       &kp SEMI
                 &hml LGUI A &hml LALT R &hml LSHFT S &hml LCTRL T &kp G                      &kp M &hmr LCTRL N  &hmr RSHFT E &hmr LALT I &hmr LGUI O
                 &kp Z       &kp X       &kp C        &kp D        &kp V                      &kp K &kp H         &kp COMMA    &kp DOT     &kp SLASH
-                                                   &mshftmo L_EXT 0 &mo 1                  &kp ENTER &kmo L_SYM SPACE
+                                                   &mshftmo L_EXT 0 &mo 1                  &kp ENTER &lt L_SYM SPACE
             >;
         };
 
