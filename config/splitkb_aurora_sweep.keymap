@@ -101,14 +101,14 @@
             hold-trigger-on-release;
         };
 
-        l_sym: key_and_sym_layer {
+        kmo: key_and_mo_layer {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
             require-prior-idle-ms = <150>;
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
-            bindings = <&kp>, <&mo L_SYM>;
+            bindings = <&kp>, <&mo>;
             hold-trigger-key-positions = <ALL_KEYS>;
             hold-trigger-on-release;
         };
@@ -201,7 +201,7 @@
                 &kp Q       &kp W       &kp F        &kp P        &kp B                      &kp J &kp L         &kp U        &kp Y       &kp SEMI
                 &hml LGUI A &hml LALT R &hml LSHFT S &hml LCTRL T &kp G                      &kp M &hmr LCTRL N  &hmr RSHFT E &hmr LALT I &hmr LGUI O
                 &kp Z       &kp X       &kp C        &kp D        &kp V                      &kp K &kp H         &kp COMMA    &kp DOT     &kp SLASH
-                                                            &mshift &mo 1                  &kp ENTER &l_sym SPACE 0
+                                                            &mshift &mo 1                  &kp ENTER &kmo SPACE L_SYM
             >;
         };
 
