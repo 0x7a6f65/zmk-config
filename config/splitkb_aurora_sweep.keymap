@@ -51,6 +51,7 @@
 #define L_EXT 1
 #define L_SYM 2
 #define L_NUM 3
+#define L_GAM 4
 
 #define DEADG F21
 #define DEADA F22
@@ -138,6 +139,9 @@
             boot { sequence = <B O O T>; bindings = <&bootloader>; };
             reset { sequence = <R E S E T>; bindings = <&sys_reset>; };
             soft_off { sequence = < O F F>; bindings = <&soft_off>; };
+
+            // Layers
+            game { sequence = <L G A M E>; bindings = <&to L_GAM>; };
 
             // Accents
             ae { sequence = <A E>; bindings = <&uc UC_FR_AE>; };
@@ -241,6 +245,15 @@
                 &none  &kp N4 &kp N5 &kp N6 &kp PRCNT                      &none &kp F5 &kp F6  &kp F7  &kp F8
                 &kp N0 &kp N1 &kp N2 &kp N3 &none                          &none &kp F1 &kp F2  &kp F3  &kp F4
                                             &none &none                  &none &none
+            >;
+        };
+
+        game_layer {
+            bindings = <
+                &kp ESC   &kp N1 &kp N2 &kp E &kp R                      &kp T &kp Y &kp I &kp O  &to L_DEF
+                &kp LSHFT &kp A  &kp W  &kp D &kp F                      &kp G &kp H &kp J &kp K  &kp L
+                &kp LCTRL &kp Z  &kp S  &kp C &kp V                      &kp B &kp N &kp M &kp N3 &kp N4
+                                            &kp SPACE &kp Q              &kp G &kp M // grenade and map often are G/M
             >;
         };
     };
