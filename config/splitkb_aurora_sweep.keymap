@@ -52,6 +52,11 @@
 #define L_SYM 2
 #define L_NUM 3
 
+#define DEADG F21
+#define DEADA F22
+#define DEADC F23
+#define DEADD F24
+
 &mt {
     // flavor = "tap-preferred";
     // tapping-term-ms = <200>;
@@ -126,7 +131,7 @@
 
             macos { sequence = <S M A C>; bindings = <&uc UC_SET_MACOS>; };
             windows { sequence = <S W I N>; bindings = <&uc UC_SET_WIN_ALT>; };
-            linux { sequence = <S L I N>; bindings = <&uc UC_SET_MACOS>; };
+            linux { sequence = <S L I N U X>; bindings = <&uc UC_SET_LINUX>; };
             emacs { sequence = <S E M A C S>; bindings = <&uc UC_SET_EMACS>; };
 
             // Management
@@ -163,6 +168,18 @@
             bindings = <&kp QMARK>, <&kp EXCL>;
             mods = <(MOD_LSFT)>;
         };
+
+        ak_e: ak_e {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&kp E>;
+            dead-keys = <DEADG DEADA DEADC DEADD>;
+
+            grave { trigger-keys = <DEADG>; bindings = <&uc UC_FR_E_GRAVE>; };
+            acute { trigger-keys = <DEADA>; bindings = <&uc UC_FR_E_ACUTE>; };
+            circumflex { trigger-keys = <DEADC>; bindings = <&uc UC_FR_E_CIRCUMFLEX>; };
+            diaeresis { trigger-keys = <DEADD>; bindings = <&uc UC_FR_E_DIAERESIS>; };
+        };
     };
 
     combos {
@@ -195,16 +212,16 @@
             bindings = <
                 &kp Q       &kp W       &kp F        &kp P        &kp B                      &kp J &kp L         &kp U        &kp Y       &kp SEMI
                 &hml LGUI A &hml LALT R &hml LSHFT S &hml LCTRL T &kp G                      &kp M &hmr LCTRL N  &hmr RSHFT E &hmr LALT I &hmr LGUI O
-                &kp Z       &kp X       &kp C        &kp D        &kp V                      &kp K &kp H         &kp COMMA    &kp DOT     &lques
-                                                &lt L_EXT SPACE &kp ENTER                  &mo L_SYM &mshift
+                &kp Z       &kp X       &kp C        &kp D        &kp V                      &kp K &kp H         &kp COMMA    &kp DOT     &kp SLASH
+                                                  &mshift &lt L_EXT ENTER                  &mo L_SYM &kp SPACE
             >;
         };
 
         ext_layer {
             bindings = <
-                &none   &swap   &none     &none    &kp C_NEXT                      &none &none    &none     &none    &none
-                &kp ESC &kp TAB &kp ENTER &kp BSPC &kp C_PP                        &none &kp LEFT &kp DOWN  &kp UP   &kp RIGHT
-                &none   &none   &none     &kp DEL  &kp C_PREV                      &none &none    &none     &none    &leader
+                &none   &swap   &none     &none    &kp C_NEXT                      &none &none     &none     &none     &none
+                &kp ESC &kp TAB &kp ENTER &kp BSPC &none                           &none &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT
+                &none   &none   &none     &kp DEL  &kp C_PREV                      &none &kp DEADA &kp DEADG &kp DEADC &kkp DEADD
                                                   &none  &trans                  &none &kp C_PP
             >;
         };
