@@ -101,14 +101,6 @@
             hold-trigger-on-release;
         };
 
-        mshftmo: magic_shift_and_mo_layer {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&mshift>;
-        };
-
 
         mshift: magic_shift {
             compatible = "zmk,behavior-mod-morph";
@@ -126,10 +118,10 @@
             usb { sequence = <U S B>; bindings = <&out OUT_USB>; };
             ble { sequence = <B L E>; bindings = <&out OUT_BLE>; };
 
-            bt0 { sequence = <B S A>; bindings = <&bt BT_SEL 0>; }; // A -> 0
-            bt1 { sequence = <B S R>; bindings = <&bt BT_SEL 1>; }; // R -> 1
-            bt2 { sequence = <B S S>; bindings = <&bt BT_SEL 2>; }; // S -> 2
-            bt3 { sequence = <B S T>; bindings = <&bt BT_SEL 3>; }; // T -> 3
+            bt0 { sequence = <B A>; bindings = <&bt BT_SEL 0>; }; // A -> 0
+            bt1 { sequence = <B R>; bindings = <&bt BT_SEL 1>; }; // R -> 1
+            bt2 { sequence = <B S>; bindings = <&bt BT_SEL 2>; }; // S -> 2
+            bt3 { sequence = <B T>; bindings = <&bt BT_SEL 3>; }; // T -> 3
             btc { sequence = <B C L R>; bindings = <&bt BT_CLR>; };
 
             macos { sequence = <S M A C>; bindings = <&uc UC_SET_MACOS>; };
@@ -164,6 +156,13 @@
             #binding-cells = <0>;
             bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
         };
+
+        lques: logical_shifted_question {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp QMARK>, <&kp EXCL>;
+            mods = <(MOD_LSFT)>;
+        };
     };
 
     combos {
@@ -196,17 +195,17 @@
             bindings = <
                 &kp Q       &kp W       &kp F        &kp P        &kp B                      &kp J &kp L         &kp U        &kp Y       &kp SEMI
                 &hml LGUI A &hml LALT R &hml LSHFT S &hml LCTRL T &kp G                      &kp M &hmr LCTRL N  &hmr RSHFT E &hmr LALT I &hmr LGUI O
-                &kp Z       &kp X       &kp C        &kp D        &kp V                      &kp K &kp H         &kp COMMA    &kp DOT     &kp SLASH
-                                                   &mshftmo L_EXT 0 &mo 1                  &kp ENTER &lt L_SYM SPACE
+                &kp Z       &kp X       &kp C        &kp D        &kp V                      &kp K &kp H         &kp COMMA    &kp DOT     &lques
+                                                &lt L_EXT SPACE &kp ENTER                  &mo L_SYM &mshift
             >;
         };
 
         ext_layer {
             bindings = <
-                &none   &swap   &none     &none    &kp C_NEXT                      &none &kp LGUI &sk LCTRL &sk LALT &sk LGUI
+                &none   &swap   &none     &none    &kp C_NEXT                      &none &none    &none     &none    &none
                 &kp ESC &kp TAB &kp ENTER &kp BSPC &kp C_PP                        &none &kp LEFT &kp DOWN  &kp UP   &kp RIGHT
                 &none   &none   &none     &kp DEL  &kp C_PREV                      &none &none    &none     &none    &leader
-                                                  &none  &trans                  &none &none
+                                                  &none  &trans                  &none &kp C_PP
             >;
         };
 
