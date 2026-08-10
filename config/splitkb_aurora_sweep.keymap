@@ -205,7 +205,7 @@
 
         esc {
             timeout-ms = <30>;
-            key-positions = <LB2 LB3>;
+            key-positions = <LT2 LT3>;
             layers = <0>;
             bindings = <&kp ESC>;
             require-prior-idle-ms = <100>;
